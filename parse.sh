@@ -1,5 +1,13 @@
 #!/bin/bash
 PARSECMD=/patch/to/my/work/admin2html.pl
+
+## in case you want to send it by mail#########
+SMTPCMD=/usr/bin/email
+SMTPFROMADDR="$fromaddress"
+SMTPTO="$sendtoadres"
+SMTPSRV="your smtp relay/server"
+################################################
+
 HEAD="<html>
  <head>
   <style>
@@ -36,3 +44,10 @@ HTML="$HEAD $HTMLTABLE1 <br> $HTMLTABLE <br> $FOOTER"
 #        HTMLTABLE1=$HTMLTABLE1"</table>"
 #
 #HTML="$HEAD $HTMLTABLE1 <br> $HTMLTABLE <br> $FOOTER"
+# Send Mail
+echo "$HTML" | $SMTPCMD -from-addr $SMTPFROMADDR -html -subject "PulseSecureEvents $(hostname) parser $(date +"%Y-%m-%d")" -smtp-server $SMTPSRV $SMTPTO
+if [ $ERR != 0 ]; then
+        exit 1
+fi
+exit 0
+
