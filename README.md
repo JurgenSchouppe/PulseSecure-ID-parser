@@ -14,7 +14,7 @@ Declare a variable parsecmd=/path/to/my/work/admin2html.pl
 
 than use it in order to parse an eventlog file (in this case a gzip file)
 gzip -dc $filename | $PARSECMD)
-see parse.sh for more details.
+see parse.sh for more details. I've also included the part to send the HTML created log page by mail.
 ```
 
 ## Built With
