@@ -1,5 +1,5 @@
 #!/bin/bash
-PARSECMD=/patch/to/my/work/admin2html.pl
+PARSECMD=/path/to/my/work/admin2html.pl
 
 ## in case you want to send it by mail#########
 SMTPCMD=/usr/bin/email
